@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Musichub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      background: white;
+      color: #8DCD00;
+    }
+    header {
+      background: linear-gradient(#0095CD , #8DCD00);
+      padding: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header img {
+      height: 56px;
+    }
+    .loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    main {
+      padding: 1em;
+      padding-bottom: 5em;
+    }
+    .section { display: none; }
+    .section.active { display: block; }
+
+    .card {
+      background: white;
+      margin: 0.5em 0;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card h3 { margin-bottom: 0.3em; font-size: 1.1em; }
+    .card p { color: #666; font-size: 0.9em; }
+    .card button {
+      background: linear-gradient(#0070B4 , #00A0FF);
+      border: none;
+      color: white;
+      padding: 0.5em 1em;
+      margin-top: 0.5em;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: Ubuntu;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 0.7em;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #0095CD;
+      display: flex;
+      justify-content: space-around;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+      padding: 0.5em 0;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      color: #FFFFFFD6;
+      font-family: Ubuntu;
+    }
+    nav button.active {
+      color: #9BC500;
+    }
+
+    .title-share {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .share-btn {
+      background: #0095CD;
+      border: none;
+      padding: 0.3em 0.7em;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    
+    button {
+      
+     background: linear-gradient(#0070B4, #00A0FF);
+border: none;
+color: white;
+padding: 0.5em 1em;
+margin-top: 0.5em;
+border-radius: 20px;
+cursor: pointer;
+font-family: Ubuntu; 
+      
+      
+    }
+    
+    input {background: white;
+      color:#9BC500;
+      font-family: Ubuntu; 
+    }
+    
+      a {color:#0095CD;}
+      
+      
+    h3 {
+      height: 45;
+      
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <h3>loading...</h3>
+    
+    <div class="progress-bar">
+  <div class="progress-fill"></div>
+</div>
+
+<style>
+.progress-bar {
+  width: 300px;
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  width: 50%; /* puedes cambiarlo dinámicamente con JavaScript */
+  height: 100%;
+  background: linear-gradient(90deg, #00469C, #0072FF);
+  animation: loading 2s infinite linear;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+</style>
+    
+    
+    </div>
+
+    
+    </div>
+
+  <header><img src="/20250517_172902.png" alt="logo"></header>
+
+  <main>
+    <section id="home" class="section active">
+      <h2>recomendado</h2>
+
+
+<h3>DLD ventura</h3>
+<a href="https://youtu.be/hTIPdIarr7g?si=x0s8sdaIX-s8K3Q9">repoducir en YouTube</a><br><br>
+
+<h3>coldplay clocks</h3>
+<a href="https://youtu.be/d020hcWA_Wg?si=aEp3-iYL3KCzMBtZ">repoducir en YouTube</a><br><br>
+
+<h3>Robbie Williams Feel</h3>
+<a href="https://youtu.be/iy4mXZN1Zzk?si=NnwHTFpUqEwBM4L2">repoducir en YouTube</a><br><br>
+    </section>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .carrusel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 10px;
+    }
+    .carrusel a {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      text-decoration: none;
+    }
+    .carrusel img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+    <h2>categorías</h2>
+
+  <div class="carrusel">
+    <a 
+    href="https://youtube.com/playlist?list=PL3oW2tjiIxvR21omOIAErUR73Uh46v-_0&si=WmtDv3rwDZ7JT3lx"
+    target="_blank">
+      <img src="/20250517_170444.jpg" alt="Imagen 1">
+    </a>
+    <a href="https://youtube.com/playlist?list=PL6Lt9p1lIRZ311J9ZHuzkR5A3xesae2pk&si=rHET9cbH4YWgdKpj" target="_blank">
+      <img src="/20250517_170653.jpg" alt="Imagen 2">
+    </a>
+    <a href="https://youtube.com/playlist?list=RDQMI98DTvf-SMk&playnext=1&si=CStGstWeTRb8nGLM" target="_blank">
+      <img src="/20250517_170815.jpg" alt="Imagen 3">
+    </a>
+  </div>
+
+</body>
+</html>
+
+
+    <section id="search" class="section">
+      <input type="text" class="search-box" id="searchInput" placeholder="Buscar canciones o artistas...">
+      <div id="searchResults"></div>
+    </section>
+
+    <section id="artists" class="section">
+      <h2>Artistas sugeridos</h2>
+      <div>
+        <button onclick="search('mana')">mana</button>
+        <button onclick="search('dld')">dld</button>
+      </div>
+    </section>
+
+    <section id="player" class="section">
+      <div class="title-share">
+        <h2 id="currentTitle">Reproductor</h2>
+        <button class="share-btn" onclick="shareCurrent()">Compartir</button>
+      </div>
+      <div>
+        <iframe id="ytPlayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <nav>
+    <button onclick="showSection('home')" class="active"><i class="mdi mdi-home"></i></button>
+    <button onclick="showSection('search')"><i class="mdi mdi-magnify"></i></button>
+    <button onclick="showSection('artists')"><i class="mdi mdi-account-music"></i></button>
+    <button onclick="showSection('player')"><i class="mdi mdi-play-circle"></i></button>
+  </nav>
+
+  <script>
+    const API_KEY = "AIzaSyB9n72SwCPa6i8TEfT6bN0rJibW95bTJ0o"; // reemplaza con tu clave real
+    const ytPlayer = document.getElementById("ytPlayer");
+    const currentTitle = document.getElementById("currentTitle");
+
+    function showSection(id) {
+      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+      document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      document.querySelectorAll("nav button")[["home", "search", "artists", "player"].indexOf(id)].classList.add("active");
+    }
+
+    async function search(query) {
+      const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&type=video&q=${encodeURIComponent(query)}&key=${API_KEY}`);
+      const data = await res.json();
+      const container = document.getElementById("searchResults");
+      container.innerHTML = "";
+      data.items.forEach(item => {
+        const videoId = item.id.videoId;
+        const title = item.snippet.title;
+        const channel = item.snippet.channelTitle;
+        container.innerHTML += `
+          <div class="card">
+            <h3>${title}</h3>
+            <p>${channel}</p>
+            <button onclick="playVideo('${videoId}', \`${title.replace(/`/g, "")}\`)">Reproducir</button>
+          </div>`;
+      });
+      showSection("search");
+    }
+
+    async function loadTrending() {
+      const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&type=video&q=top music&key=${API_KEY}`);
+      const data = await res.json();
+      const container = document.getElementById("trending");
+      container.innerHTML = "";
+      data.items.forEach(item => {
+        const videoId = item.id.videoId;
+        const title = item.snippet.title;
+        const channel = item.snippet.channelTitle;
+        container.innerHTML += `
+          <div class="card">
+            <h3>${title}</h3>
+            <p>${channel}</p>
+            <button onclick="playVideo('${videoId}', \`${title.replace(/`/g, "")}\`)">Escuchar</button>
+          </div>`;
+      });
+    }
+
+    function playVideo(videoId, title) {
+      ytPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      currentTitle.textContent = title;
+      showSection("player");
+    }
+
+    function shareCurrent() {
+      const url = ytPlayer.src;
+      navigator.clipboard.writeText(url);
+      alert("¡Enlace copiado para compartir!");
+    }
+
+    document.getElementById("searchInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") search(this.value);
+    });
+
+    window.addEventListener("load", () => {
+      loadTrending();
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+</style>
